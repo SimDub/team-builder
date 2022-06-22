@@ -74,11 +74,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Johnny</td>
-              <td>CASH</td>
+            <tr
+            *ngFor="let p of personnes; index as i">
+              <td>{{p.prenom}}</td>
+              <td>{{p.nom}}</td>
               <td>
-                <button class="btn btn-danger">
+                <button class="btn btn-danger" (click)="onSupprimerPersonne(i)">
                   <i class="fa fa-trash"></i>
                 </button>
               </td>

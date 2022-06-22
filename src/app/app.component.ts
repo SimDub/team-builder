@@ -36,4 +36,9 @@ ngOnInit(): void {
     this.nom = '';
     this.selectValue=-1;
   }
+
+  onSupprimerPersonne(i:number){
+    let personne = this.personnes[i];
+    this.entrepriseService.supprimerPersonne(i, personne);
+  }
 }

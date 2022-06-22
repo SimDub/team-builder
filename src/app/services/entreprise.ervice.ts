@@ -21,7 +21,12 @@ export class EntrepriseService{
     }
   }
 
-  supprimerPersonne(iEquipe:number,i:number){
+  supprimerPersonneDEquipe(iEquipe:number,i:number){
     this.equipes[iEquipe].personnes.splice(i,1)
+  }
+
+  supprimerPersonne(i:number, personne:Personne){
+
+    this.personnes.splice(i,1);
   }
 }

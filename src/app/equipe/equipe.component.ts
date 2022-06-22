@@ -19,7 +19,7 @@ export class EquipeComponent implements OnInit {
     this.entrepriseService.supprimerEquipe(this.indice);
   }
 
-  onSupprimerPersonne(i:number){
-    this.entrepriseService.supprimerPersonne(this.indice,i);
+  onSupprimerPersonneDEquipe(i:number){
+    this.entrepriseService.supprimerPersonneDEquipe(this.indice,i);
   }
 }
