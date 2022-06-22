@@ -1,7 +1,9 @@
 import { Equipe } from "../Models/Equipe";
+import { Personne } from "../Models/personne";
 
 export class EntrepriseService{
   equipes:Equipe[]= [];
+  personnes:Personne[]= [];
 
   ajouterEquipe(nomEquipe:string){
     let e = new Equipe(nomEquipe);
@@ -12,7 +14,14 @@ export class EntrepriseService{
     this.equipes.splice(id,1);
   }
 
-  supprimerPersonne(id:number){
-    this.equipes.splice(id,1);
+  ajouterPersonne(personne:Personne, id:number){
+    this.personnes.push(personne);
+    if(id >= 0){
+      this.equipes[id].personnes.push(personne)
+    }
+  }
+
+  supprimerPersonne(iEquipe:number,i:number){
+    this.equipes[iEquipe].personnes.splice(i,1)
   }
 }
