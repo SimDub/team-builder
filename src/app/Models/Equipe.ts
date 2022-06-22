@@ -1,6 +1,8 @@
+import { Personne } from "./personne";
+
 export class Equipe{
-  constructor(
-    public nom:string='',
-    public personnes:any[]=[]){
-    };
+    personnes:Personne[];
+    constructor(public nom:string=''){
+        this.personnes =[];
+        }
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Equipe } from '../Models/Equipe';
+import { EntrepriseService } from '../services/entreprise.ervice';
 
 @Component({
   selector: 'app-equipe',
@@ -7,13 +8,18 @@ import { Equipe } from '../Models/Equipe';
   styleUrls: ['./equipe.component.scss']
 })
 export class EquipeComponent implements OnInit {
-
-@Input() equipe:Equipe = new Equipe();
-@Input() index:number = 0;
-
-  constructor() { }
+@Input() equipe:Equipe= new Equipe();
+@Input() indice:number =0;
+  constructor(private entrepriseService:EntrepriseService) { }
 
   ngOnInit(): void {
   }
 
+  onSupprimerEquipe(){
+    this.entrepriseService.supprimerEquipe(this.indice);
+  }
+
+  onSupprimerPersonne(id:number){
+    this.entrepriseService.supprimerPersonne(id);
+  }
 }

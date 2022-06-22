@@ -1,4 +1,4 @@
-<div class="container" id="team">
+<div class="container">
   <div class="row">
     <div class="col-md-8">
       <div class="bg-gris p-4">
@@ -12,45 +12,18 @@
             />
           </div>
           <div class="col-1">
-            <button class="btn btn-success" (click)="ajouterEquipe()">
+            <button class="btn btn-success" (click)="onAjouterEquipe()">
               <i class="fa fa-plus"></i>
             </button>
           </div>
         </div>
       </div>
       <div>
-        <table
-          *ngFor="let equipe of equipes; index as i"
-          class="table table-striped mt-4"
-        >
-          <tbody>
-            <tr>
-              <td colspan="3">
-                <div class="row">
-                  <app-equipe [equipe]="equipe" [index]="i"></app-equipe>
-                </div>
-              </td>
-            </tr>
-            <tr *ngIf="equipe.personnes.length > 0">
-              <th>Prénom</th>
-              <th>Nom</th>
-              <th>Action</th>
-            </tr>
-
-            <tr *ngFor="let personne of equipe.personnes; index as ip">
-              <td>{{ personne.prenom }}</td>
-              <td>{{ personne.nom }}</td>
-              <td>
-                <button
-                  (click)="enleverPersonneEquipe(i, ip)"
-                  class="btn btn-danger"
-                >
-                  <i class="fa fa-trash"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <app-equipe
+          *ngFor="let e of equipes; index as i"
+          [equipe]="e"
+          [indice]="i"
+        ></app-equipe>
       </div>
     </div>
     <div class="col-md-4">
@@ -65,54 +38,47 @@
         <div class="mb-3">
           <input class="form-control" aria-label="prenom" placeholder="Nom" />
         </div>
-        <!-- <div class="mb-3">
-              <select
-              [(ngModel)]="equipeIndice"
-                aria-label="Equipe"
-                class="form-select"
-              >
-                <option value="-1">Pas d'équipe</option>
-                <option *ngFor="(equipe,i) in entreprise.equipes" :value="i">
-                  {{equipe.nom}}
-                </option>
-              </select>
-            </div> -->
-        <button
-          class="btn btn-success btn-lg col-12"
-          (click)="ajouterPersonne()"
-        >
+        <div class="mb-3">
+          <select aria-label="Equipe" class="form-select">
+            <option value="-1">Pas d'équipe</option>
+            <option
+              *ngFor="let e of equipes; index as iEquipe"
+              value="{{ iEquipe }}"
+            >
+              {{ e.nom }}
+            </option>
+          </select>
+        </div>
+        <button class="btn btn-success btn-lg col-12">
           <i class="fa fa-plus"></i>
         </button>
       </div>
+      <!-- divUser -->
 
-      <!-- <div class="mt-3 pt-2">
-            <table
-              *ngIf="entreprise.personnes.length >0"
-              class="table table-striped mt-4"
-            >
-              <thead>
-                <tr>
-                  <th>Prénom</th>
-                  <th>Nom</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="(personne,indicePersonne) in entreprise.personnes">
-                  <td>{{personne.prenom}}</td>
-                  <td>{{personne.nom}}</td>
-                  <td>
-                    <button
-                      (click)="enleverPersonne(indicePersonne)"
-                      class="btn btn-danger"
-                    >
-                      <i class="fa fa-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div> -->
+      <div class="mt-3 pt-2">
+        <table class="table table-striped mt-4">
+          <thead>
+            <tr>
+              <th>Prénom</th>
+              <th>Nom</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Johnny</td>
+              <td>CASH</td>
+              <td>
+                <button class="btn btn-danger">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+    <!-- col4 -->
   </div>
+  <!-- row -->
 </div>
